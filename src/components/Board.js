@@ -12,19 +12,18 @@ class Board extends Component {
             currentPlayer: 1,
             validCell: null,
             message: null,
+            isStart: false,
             isEnd: false,
             canMove: true
         };
 
         this._move = this._move.bind(this);
+        this._start = this._start.bind(this);
+        this._reset = this._reset.bind(this);
     }
 
     componentWillMount(){
         this._initBoard();
-    }
-
-    componentDidMount(){
-        this._showMoveInfo();
     }
 
     _initBoard(){
@@ -193,8 +192,25 @@ class Board extends Component {
         return count;
     }
 
+    _start(){
+        this.setState({ isStart: true });
+        this._showMoveInfo();
+    }
+
+    _reset(){
+        this._initBoard();
+        this.setState({
+            currentPlayer: 1,
+            validCell: null,
+            message: null,
+            isStart: false,
+            isEnd: false,
+            canMove: true
+        });
+    }
+
 	render(){
-        const { board, size, currentPlayer, message, isEnd } = this.state;
+        const { board, size, currentPlayer, message, isEnd, isStart } = this.state;
         const styles = {
             board: {
                 width: size * 50
@@ -253,6 +269,14 @@ class Board extends Component {
                         <span className='score'>{score['W']}</span>
                         <span>Player {currentPlayer === 1 ? 'Black' : 'White'}</span>
                     </div>
+                    
+                    {
+                        isStart
+                        ?
+                        <button type='button' className='btn-reset' onClick={this._reset}>Reset</button>
+                        :
+                        <button type='button' className='btn-reset' onClick={this._start}>Start</button>
+                    }
                 </div>
             </div>
 		);

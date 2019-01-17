@@ -113,3 +113,15 @@ body {
 	
 }
 
+.btn-reset {
+	display: block;
+	width: 100px;
+	margin: 0 auto;
+	text-align: center;
+	padding: 10px;
+	background: #fff;
+	cursor: pointer;
+	border: 1px solid #ccc;
+	box-shadow: none;
+}
+
