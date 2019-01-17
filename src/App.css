@@ -2,11 +2,21 @@
 	box-sizing: border-box;
 }
 
+body {
+	background: #0fc;
+}
+
+.wrapper {
+	overflow-x: hidden;
+}
+
 .board {
 	background: #e1e1e1;
 	border-collapse: collapse;
 	text-align: center;
 	vertical-align: middle;
+	box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.4);
+	margin: 50px auto;
 }
 
 .board .cell {
@@ -34,3 +44,72 @@
 	background: #fff;
 	vertical-align: middle;
 }
+
+.playerB-notification, .playerW-notification {
+	display: table;
+	padding: 10px;
+	font-weight: bold;
+	width: 200px;
+	position: fixed;
+	top: 25%;
+}
+
+.playerB-notification span, .playerW-notification span {
+	display: table-cell;
+	width: 100%;
+}
+
+.playerB-notification .score, .playerW-notification .score {
+	width: 25px;
+	max-width: 25px;
+}
+
+.playerB-notification {
+	color: #fff;
+	background: #000;
+	left: 0;
+	transform: translateX(calc(50px - 100%));
+	border-radius: 0 0/50% 50%/0 0;
+	transition: 0.5s;
+}
+
+.playerB-notification .score {
+	text-align: right;
+}
+
+.playerW-notification {
+	color: #000;
+	background: #fff;
+	right: 0;
+	transform: translateX(calc(100% - 50px));
+	transition: 0.5s;
+}
+
+.playerW-notification span {
+	text-align: right;
+}
+
+.playerW-notification .score {
+	text-align: left;
+}
+
+.playerB-notification.isActive, .playerW-notification.isActive {
+	transform: translateX(0);
+}
+
+.notification {
+	width: 300px;
+	max-width: 100%;
+	color: #fff;
+	text-align: center;
+	font-weight: bold;
+	background: #f66;
+	border-radius: 2px;
+	padding: 10px;
+	position: fixed;
+	top: 25%;
+	left: 50%;
+	transform: translateX(-50%);
+	
+}
+

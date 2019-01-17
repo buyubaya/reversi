@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Notification from './Notification';
 
 
 class Board extends Component {
@@ -10,8 +11,9 @@ class Board extends Component {
             board: [],
             currentPlayer: 1,
             validCell: null,
-            cannotPlay: null,
-            isEnd: false
+            message: null,
+            isEnd: false,
+            canMove: true
         };
 
         this._move = this._move.bind(this);
@@ -45,6 +47,7 @@ class Board extends Component {
 
     _move(loc){
         if(this._isValidCell(loc)){
+            this.setState({ validCell: null });
             let { board, currentPlayer, validCell } = this.state;
 
             // fill the board
@@ -58,7 +61,10 @@ class Board extends Component {
             setTimeout(() => this._nextTurn(), 0);
         }
         else {
-            alert('INVALID MOVE !');
+            this.setState({ message: 'Invalid Move !' });
+            setTimeout(() => {
+                this.setState({ message: null });
+            }, 500);
         }
     }
 
@@ -78,18 +84,28 @@ class Board extends Component {
         }
         else {
             this.setState(
-                { cannotPlay: currentPlayer },
+                { message: currentPlayer === 1 ? 'Black CANNOT PLAY' : 'White CANNOT PLAY'},
                 () => {
                     setTimeout(() => {
                         const nextValidCell = this._findAllValidCell(-currentPlayer);
                         if(Object.keys(nextValidCell).length > 0){
-                            this.setState({ cannotPlay: null });
+                            this.setState({ message: null });
                             this._nextTurn();
                         }
                         else {
-                            this.setState({ isEnd: true });
+                            const score = this._getScore();
+
+                            if(score['B'] > score['W']){
+                                this.setState({ isEnd: true, message: 'GAME OVER ! Black Win' });
+                            }
+                            else if(score['B'] < score['W']){
+                                this.setState({ isEnd: true, message: 'GAME OVER ! White Win' });
+                            }
+                            else {
+                                this.setState({ isEnd: true, message: 'GAME OVER ! Draw' });
+                            }
                         }
-                    }, 2000)
+                    }, 1000)
                 }
             );
         }
@@ -156,8 +172,29 @@ class Board extends Component {
         return false;
     }
 
+    _getScore(){
+        const { board, size } = this.state;
+        let count = {
+            'B': 0,
+            'W': 0
+        };
+
+        for(let i=0; i < size; i++){
+            for(let j=0; j < size; j++){
+                if(board[i][j] === 1){
+                    count['B'] += 1;
+                }
+                if(board[i][j] === -1){
+                    count['W'] += 1;
+                }
+            }
+        }
+
+        return count;
+    }
+
 	render(){
-        const { board, size, currentPlayer, cannotPlay, isEnd } = this.state;
+        const { board, size, currentPlayer, message, isEnd } = this.state;
         const styles = {
             board: {
                 width: size * 50
@@ -167,9 +204,10 @@ class Board extends Component {
                 height: 50
             }
         };
+        const score = this._getScore();
         
 		return (
-			<div>
+			<div className='wrapper'>
                 <table className='board' style={styles.board}>
                     <tbody>
                     {
@@ -202,15 +240,19 @@ class Board extends Component {
             
                 <div>
                     {
-                        isEnd &&
-                        <h1>GAME OVER !</h1>
+                        message &&
+                        <div className='notification'>
+                            {message}
+                        </div>
                     }
-                    {
-                        cannotPlay &&
-                        <h1>{cannotPlay === 1 ? 'Black' : 'White'} CANNOT PLAY</h1>
-                    }
-                    <span>Current Player: </span>
-                    <span>{currentPlayer === 1 ? 'Black' : 'White'}</span>
+                    <div className={currentPlayer === 1 ? 'playerB-notification isActive' : 'playerB-notification'}>
+                        <span>Player {currentPlayer === 1 ? 'Black' : 'White'}</span>
+                        <span className='score'>{score['B']}</span>
+                    </div>
+                    <div className={currentPlayer === -1 ? 'playerW-notification isActive' : 'playerW-notification'}>
+                        <span className='score'>{score['W']}</span>
+                        <span>Player {currentPlayer === 1 ? 'Black' : 'White'}</span>
+                    </div>
                 </div>
             </div>
 		);
