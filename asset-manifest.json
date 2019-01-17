@@ -1,13 +1,13 @@
 {
-  "main.css": "/reversi/static/css/main.438cc560.chunk.css",
-  "main.js": "/reversi/static/js/main.45974197.chunk.js",
-  "main.js.map": "/reversi/static/js/main.45974197.chunk.js.map",
-  "static/js/1.a6f3a221.chunk.js": "/reversi/static/js/1.a6f3a221.chunk.js",
-  "static/js/1.a6f3a221.chunk.js.map": "/reversi/static/js/1.a6f3a221.chunk.js.map",
+  "main.css": "/reversi/static/css/main.9822d22b.chunk.css",
+  "main.js": "/reversi/static/js/main.d1392519.chunk.js",
+  "main.js.map": "/reversi/static/js/main.d1392519.chunk.js.map",
+  "static/js/1.f14bf8d2.chunk.js": "/reversi/static/js/1.f14bf8d2.chunk.js",
+  "static/js/1.f14bf8d2.chunk.js.map": "/reversi/static/js/1.f14bf8d2.chunk.js.map",
   "runtime~main.js": "/reversi/static/js/runtime~main.12ca339f.js",
   "runtime~main.js.map": "/reversi/static/js/runtime~main.12ca339f.js.map",
-  "static/css/main.438cc560.chunk.css.map": "/reversi/static/css/main.438cc560.chunk.css.map",
+  "static/css/main.9822d22b.chunk.css.map": "/reversi/static/css/main.9822d22b.chunk.css.map",
   "index.html": "/reversi/index.html",
-  "precache-manifest.3866055688b27cef1effa8937f41dd68.js": "/reversi/precache-manifest.3866055688b27cef1effa8937f41dd68.js",
+  "precache-manifest.b3853fec661240fe0390b7dff34f90a8.js": "/reversi/precache-manifest.b3853fec661240fe0390b7dff34f90a8.js",
   "service-worker.js": "/reversi/service-worker.js"
 }
