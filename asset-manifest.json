@@ -1,13 +1,13 @@
 {
-  "main.css": "/reversi/static/css/main.9cfec70c.chunk.css",
-  "main.js": "/reversi/static/js/main.683edc71.chunk.js",
-  "main.js.map": "/reversi/static/js/main.683edc71.chunk.js.map",
+  "main.css": "/reversi/static/css/main.423ca049.chunk.css",
+  "main.js": "/reversi/static/js/main.9936658e.chunk.js",
+  "main.js.map": "/reversi/static/js/main.9936658e.chunk.js.map",
   "static/js/1.f14bf8d2.chunk.js": "/reversi/static/js/1.f14bf8d2.chunk.js",
   "static/js/1.f14bf8d2.chunk.js.map": "/reversi/static/js/1.f14bf8d2.chunk.js.map",
   "runtime~main.js": "/reversi/static/js/runtime~main.12ca339f.js",
   "runtime~main.js.map": "/reversi/static/js/runtime~main.12ca339f.js.map",
-  "static/css/main.9cfec70c.chunk.css.map": "/reversi/static/css/main.9cfec70c.chunk.css.map",
+  "static/css/main.423ca049.chunk.css.map": "/reversi/static/css/main.423ca049.chunk.css.map",
   "index.html": "/reversi/index.html",
-  "precache-manifest.c02e3fe2630eaad54822b3be921fc521.js": "/reversi/precache-manifest.c02e3fe2630eaad54822b3be921fc521.js",
+  "precache-manifest.9e7bcfde887623e367ef1841ae62e651.js": "/reversi/precache-manifest.9e7bcfde887623e367ef1841ae62e651.js",
   "service-worker.js": "/reversi/service-worker.js"
 }
